@@ -36,7 +36,8 @@ def runTests(issueNo):
     issue = jira.issue(issueNo)
 
     if issue:
-        print("Found the issue")
+        print("Found the issue: ")
+        print('Summary: '+ issue.fields.summary)
         all_hiveqa_comments = [comment for comment in issue.fields.comment.comments
                 if re.search('^hiveqa$', comment.author.name)]
         if all_hiveqa_comments:
